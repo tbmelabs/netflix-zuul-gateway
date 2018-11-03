@@ -1,10 +1,10 @@
-# TBME Labs Eureka Service Registry
+# TBME Labs Netflix Zuul Gateway
 
-Service registry for microservice environments built upon Netflix Eureka.
+API-Gateway for Microservices on Kubernetes.
 
-[![Build Status](https://travis-ci.org/tbmelabs/tbmelabs-eureka-service-registry.svg?branch=master)](https://travis-ci.org/tbmelabs/tbmelabs-eureka-service-registry)
+[![Build Status](https://travis-ci.org/tbmelabs/netflix-zuul-gateway.svg?branch=master)](https://travis-ci.org/tbmelabs/netflix-zuul-gateway)
 [![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=eureka-service-registry&metric=alert_status)](https://sonarcloud.io/dashboard?id=eureka-service-registry)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tbmelabs/tbmelabs-eureka-service-registry.svg)](https://hub.docker.com/r/tbmelabs/tbmelabs-eureka-service-registry)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tbmelabs/netflix-zuul-gateway.svg)](https://hub.docker.com/r/tbmelabs/netflix-zuul-gateway)
 
 ### Prerequisites
 
@@ -47,4 +47,4 @@ See also the list of [contributors](https://github.com/tbmelabs/tbme-tv/contribu
 
 ## License
 
-This project is published under the terms of MIT License. For more information see the [license file](https://github.com/tbmelabs/tbmelabs-eureka-service-registry/blob/development/LICENSE).
+This project is published under the terms of MIT License. For more information see the [license file](https://github.com/tbmelabs/netflix-zuul-gateway/blob/development/LICENSE).

@@ -6,7 +6,7 @@
     <artifactId>netflix-zuul-gateway</artifactId>
 
     <name>TBME Labs | Netflix-Zuul-Gateway</name>
-    <description>API-Gateway for Kubernetes Microservices.</description>
+    <description>API-Gateway for Microservices on Kubernetes.</description>
 
     <!-- https://oss.sonatype.org/service/local/repositories/releases/content/ch/tbmelabs/server-parent/ -->
     <parent>
