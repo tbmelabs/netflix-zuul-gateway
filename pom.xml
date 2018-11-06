@@ -3,10 +3,10 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>netflix-zuul-gateway</artifactId>
+    <artifactId>gateway-server</artifactId>
 
-    <name>TBME Labs | Netflix-Zuul-Gateway</name>
-    <description>API-Gateway for Microservices on Kubernetes.</description>
+    <name>TBME Labs | Gateway</name>
+    <description>Gateway based on Netflix Zuul prepared for usage with Keycloak.</description>
 
     <!-- https://oss.sonatype.org/service/local/repositories/releases/content/ch/tbmelabs/server-parent/ -->
     <parent>
@@ -24,8 +24,8 @@
         <com.spotify.dockerfile-maven-plugin.version>1.4.4</com.spotify.dockerfile-maven-plugin.version>
 
         <!-- Sonar configuration -->
-        <sonar.projectKey>netflix-zuul-gateway</sonar.projectKey>
-        <sonar.projectName>Netflix-Zuul-Gateway</sonar.projectName>
+        <sonar.projectKey>gateway</sonar.projectKey>
+        <sonar.projectName>Gateway</sonar.projectName>
     </properties>
 
     <dependencies>
@@ -55,5 +55,48 @@
                 <targetPath>static</targetPath>
             </resource>
         </resources>
+
+        <plugins>
+            <!-- https://mvnrepository.com/artifact/com.spotify/dockerfile-maven-plugin -->
+            <plugin>
+                <groupId>com.spotify</groupId>
+                <artifactId>dockerfile-maven-plugin</artifactId>
+                <version>${com.spotify.dockerfile-maven-plugin.version}</version>
+
+                <executions>
+                    <execution>
+                        <id>build-push-image</id>
+
+                        <phase>deploy</phase>
+
+                        <goals>
+                            <goal>build</goal>
+                            <goal>push</goal>
+                        </goals>
+                    </execution>
+                </executions>
+
+                <configuration>
+                    <buildArgs>
+                        <JAR_FILE>${project.build.finalName}.jar</JAR_FILE>
+                    </buildArgs>
+
+                    <repository>tbmelabs/tbmelabs-gateway</repository>
+                    <tag>${project.version}</tag>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
+
+    <repositories>
+        <repository>
+            <id>ossrh-snapshot</id>
+            <name>Sonatype Snapshot Repository</name>
+            <url>https://oss.sonatype.org/content/repositories/snapshots</url>
+
+            <releases>
+                <enabled>false</enabled>
+            </releases>
+        </repository>
+    </repositories>
 </project>

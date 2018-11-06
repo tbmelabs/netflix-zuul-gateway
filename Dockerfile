@@ -1,15 +1,15 @@
 FROM openjdk:8-jre
 MAINTAINER TBME Labs <info@tbmelabs.ch>
 
-ENTRYPOINT ["/usr/bin/java", "-jar", "/home/netflix-zuul-gateway/netflix-zuul-gateway.jar"]
+ENTRYPOINT ["/usr/bin/java", "-jar", "/home/gateway/gateway.jar"]
 
 ARG JAR_FILE
-ADD target/${JAR_FILE} /home/netflix-zuul-gateway/netflix-zuul-gateway.jar
+ADD target/${JAR_FILE} /home/gateway/gateway.jar
 
-RUN useradd -ms /bin/bash netflix-zuul-gateway
-RUN chown netflix-zuul-gateway /home/netflix-zuul-gateway/netflix-zuul-gateway.jar
+RUN useradd -ms /bin/bash gateway
+RUN chown gateway /home/gateway/gateway.jar
 
 EXPOSE 8080
 
-USER netflix-zuul-gateway
-WORKDIR /home/netflix-zuul-gateway
+USER gateway
+WORKDIR /home/gateway

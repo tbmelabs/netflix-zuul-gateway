@@ -1,16 +1,17 @@
-# TBME Labs Netflix Zuul Gateway
+# TBME Labs Gateway
 
-API-Gateway for Microservices on Kubernetes.
+Gateway based on Netflix Zuul prepared for usage with Keycloak.
 
-[![Build Status](https://travis-ci.org/tbmelabs/netflix-zuul-gateway.svg?branch=master)](https://travis-ci.org/tbmelabs/netflix-zuul-gateway)
-[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=eureka-service-registry&metric=alert_status)](https://sonarcloud.io/dashboard?id=eureka-service-registry)
-[![Docker Pulls](https://img.shields.io/docker/pulls/tbmelabs/netflix-zuul-gateway.svg)](https://hub.docker.com/r/tbmelabs/netflix-zuul-gateway)
+[![Build Status](https://travis-ci.org/tbmelabs/tbmelabs-gateway.svg?branch=master)](https://travis-ci.org/tbmelabs/tbmelabs-gateway)
+[![Quality Gate](https://sonarcloud.io/api/project_badges/measure?project=tbmelabs-gateway&metric=alert_status)](https://sonarcloud.io/dashboard?id=tbmelabs-gateway)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/c005d025d2954de7880f902182b18de2)](https://www.codacy.com/app/bbortt_2/tbmelabs-gateway?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=tbmelabs/tbmelabs-gateway&amp;utm_campaign=Badge_Grade)
+[![Docker Pulls](https://img.shields.io/docker/pulls/tbmelabs/tbmelabs-gateway.svg)](https://hub.docker.com/r/tbmelabs/tbmelabs-gateway)
 
 ### Prerequisites
 
 Make sure to install the following software before starting:
 
-* [Java Development Kit 8](http://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html): [This guide](https://docs.oracle.com/javase/8/docs/technotes/guides/install/install_overview.html) leads you through the installation.
+* [Java Development Kit 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html)
 * [Maven](https://maven.apache.org/download.cgi): Have a look at [this page](https://maven.apache.org/install.html) for any help while installing.
 
 ### Installing
@@ -47,4 +48,4 @@ See also the list of [contributors](https://github.com/tbmelabs/tbme-tv/contribu
 
 ## License
 
-This project is published under the terms of MIT License. For more information see the [license file](https://github.com/tbmelabs/netflix-zuul-gateway/blob/development/LICENSE).
+This project is published under the terms of MIT License. For more information see the [license file](https://github.com/tbmelabs/tbmelabs-gateway/blob/development/LICENSE).
