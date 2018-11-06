@@ -1,3 +1,4 @@
+### Maven ###
 /target/
 !.mvn/wrapper/maven-wrapper.jar
 
@@ -23,3 +24,8 @@
 /dist/
 /nbdist/
 /.nb-gradle/
+
+### Spring ###
+*-dev.properties
+*-dev.yml
+
