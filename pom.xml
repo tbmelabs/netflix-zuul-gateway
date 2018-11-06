@@ -24,8 +24,8 @@
         <com.spotify.dockerfile-maven-plugin.version>1.4.4</com.spotify.dockerfile-maven-plugin.version>
 
         <!-- Sonar configuration -->
-        <sonar.projectKey>gateway</sonar.projectKey>
-        <sonar.projectName>Gateway</sonar.projectName>
+        <sonar.projectKey>tbmelabs-gateway</sonar.projectKey>
+        <sonar.projectName>TBME Labs Gateway</sonar.projectName>
     </properties>
 
     <dependencies>

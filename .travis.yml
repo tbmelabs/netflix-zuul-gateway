@@ -1,0 +1,47 @@
+language: java
+dist: trusty
+jdk:
+- openjdk11
+
+sudo: false
+install: true
+
+notifications:
+  email: false
+
+branches:
+  only:
+  - master
+  - development
+
+addons:
+  chrome: stable
+  sonarcloud:
+    organization: "tbmelabs-github"
+    token:
+      secure: "hcUU2Recs+PfHTqmvI+wZHfM2V2Ug+BmtqDiIaVpvHIu+yPz/7yP0GxKV9OIWysZnPFz3Pr8qqsofPm0zFGsZJQw0FTYgcdwnCiKwxdB4s/Quzz015CMGO5c/eB3ld/zjf08c4NpLCkXHGudBpqnLtJ1fGSyToyHjFqfNtQIind+ZIwtKPEXNIOt6aAa2vjVABRKUFJFgADXIrfjEm1haqLx+AHRDxJgPW7IgQHmHHZ8g6P9xWJY2wzoZMcZHLDQYsYdiaTUEs6A6/+RC27MGA3rqKv5eSa+6g0VKoawBOKHfOo0yj443prjuMEkPdXKjHaWe4tKTjxRUkvlG9mJQAnWikTsgTjQ5be5O779UiAbRMtRF4kIPpjsXucafG/un5airWQKeoPioSiySzYiWSl6hw8Zvg8wTVwUMcQSu1Y7iiUliv7d0xVIQVZ5rc88XzuQPH0sBKT0iuZhzBpQR2Txt3tVOqOy8xKRe5RjglDQE0vKjzyFAwwuCLWSxOlomM8oMl2PXM9NOCNBc8g+U5sKkgn1WD/yq3rGNae2VMZjGniaGs/7PtNVOhS+jet9U1vgVF12emygJWQxFxh+IFfADcUZ166Frx5SpTIhkwO1YgeJyXXGm6iFInnpzfT5fHuYa3PYEbmdXOSup2buEZimtOrI0hnPKsQzguKM6Ks="
+
+deploy:
+  - provider: script
+    script: mvn dockerfile:push
+    on:
+      branch: development
+
+env:
+  global:
+    - secure: "bx8gQBMbh5ukYnVDw1qeLocAxkeaqtDfrq/griGtjykn7ePtNLcH95WcoTkA6v6LCCq4vG7Lg4o1oEt6dX08lKR+iqeV7WHzm25sDq7M9dPQ1Lk3OGu+kJ3z11StRhBrHJw4bDK/AfexUVKqdt+MHkwNCrPxt9UKznC7AEaE7ap6WaGXKHeSWfTEHQlS3slq9GnRhPv5ymCOi+eN0Ljz+C7HZS5+wYEUmmDENng0aIIitgWq69aHVfVd0jq6GXhbiZiDIfmmrlO8f7lH4BBM99oD3najZKADTd9hFuQ7LZAIvKQPh0LZzZp+MQdYPEC92rmPENHR8jaqb32SrK27mAgdCrM33hI0Q9yYoJQTLIXLO/dD18nkyvsYLYOP5u1vuLNiEHE2VTrAwy2i4r1xJWR5NPwSE5i5lJxPJPsPCmr13Mo2majbSUlgdkFD7De/2qu2wdpAJTKQtbUeBeiekGJMZb6FYDfzvS8gJhghTN+n63Lkn9RdSfPwNtz9IfZvcu4ilHbOpQb9WBxQLZ96IGHQ/c3Q7Uy2/IzSKHb+6EtoFez7vqllhQ/MaOG1S2Jhx3Wbv30f4GejzSJlmxoGaGnxS7ZCSWvzDkfba9T1dNx3dTElC0b88IDFHpx7eW39fJvzvJc9y9sepXaZx5WiNRIJQGwZSyKHUTOdOL2OrHQ="
+    # ^^ DOCKER_USERNAME
+    - secure: "bRYkxTdJxoIBfzvPbBNt927gUEc+99za159+INTdJ5cKX0d40jOlxG9IYOz+Gy7BbmAMX4CQj6+1IAfYyrVp5JJGeD2mMnTIFjqMUe7lxb3vOOBZvfaEBuFx83vHcAnvwTZOIzaJ5V5S/jdMdvF+3+EpTdhb//MpwC6LZxo/n+40Vj5TkIiw2YLLRbJW3HMnvl7Ia7atpt38y7ysnWGk86sVisKes+FZ0VDTgN8tkp8OVdQ09ksa5uZT4uF1aD2lVvMjFpPAMHdA8QENpOX5h6FjoNYCkZvhAfCcVlhwc8Uw2vXfl/+CERQO3rLknHY/orb1Ecicjacr1brB2nbJyCqBu94KUIDFB8NbhHOVyPSyAnDusxN9Z2pbnEaoNMj2BkaTxuRAu0kpPO+L14hfaTnJNskU8gpcGilbm3VOldMqUO15LkKc2o0T4Rsa5ScHb6l85mqSzofAWDAPkA+DSoUrbC9LsKffDlV6cSzORgZWl23KtAyxQJvIIIjz66l8xHiuz5YI0pcWJd/+sbC4C+LyuPy107zWRCCaws8f0iT5JvCjsn+EqVGeWiNDRLPcEQ9RUFg4hYqcMBi7vh1zrFLzB7PJfbWCvl59wQ2XsK58auVDxbZrerblE0fbYKKrpVYt8laY0hVRShpthmt0dlzj+8XYBhPaSmpI8jMjuBg="
+    # ^^ DOCKER_PASSWORD
+
+before_script:
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+
+script:
+  - mvn clean install dockerfile:build sonar:sonar
+
+cache:
+  directories:
+    - "$HOME/.cache"
+    - '$HOME/.m2/repository'
+    - '$HOME/.sonar/cache'
