@@ -1,0 +1,6 @@
+keycloak:
+  auth-server-url: ${KEYCLOAK_AUTH_SERVER_URL}
+  realm: ${KEYCLOAK_REALM}
+  resource: ${KEACLOAK_RESOURCE}
+  public-client: true
+  principal-attribute: preferred_username
